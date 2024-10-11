@@ -1,0 +1,26 @@
+import os 
+
+from flask import Flask
+from flask_apscheduler import APScheduler 
+from flask_bcrypt import Bcrypt 
+from flask_migrate import Migrate
+from flask_sqlalchemy import SQLAlchemy 
+from flask_login import LoginManager
+
+app = Flask(__name__)
+basedir = os.path.abspath(os.path.dirname(__file__)) # base directory là thư mục cha của file __init__.py
+app.config['SECRET_KEY'] = os.urandom(24)
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///{}'.format(os.path.join(basedir, 'database/JIRA_DB.db'))
+# config db
+db = SQLAlchemy(app)
+# config migrate 
+migrate = Migrate(app, db) 
+# nhắc nhở lên lịch cho các task
+scheduler = APScheduler()
+# config bcrypt mã hóa password
+bcrypt = Bcrypt(app)
+# config login_manager quản lý việc đăng nhập và đăng xuất của user
+login_manager = LoginManager(app)
+
+# Config router
+from JIRA import routers

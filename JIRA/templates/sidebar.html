@@ -10,7 +10,7 @@
   <ul class="nav nav-pills flex-column mb-auto">
     <li class="nav-item">
       <a
-        href="{{ url_for('tasks.tasks') }}"
+        href=""
         class="nav-link active d-flex align-items-center"
         aria-current="page"
       >
@@ -21,7 +21,7 @@
 
     {% if current_user.is_admin %}
       <li>
-        <a href="{{ url_for('users.users') }}" class="nav-link text-white d-flex align-items-center">
+        <a href="" class="nav-link text-white d-flex align-items-center">
           <i class="bi bi-star me-2"></i>
           Users
         </a>
@@ -35,7 +35,7 @@
   >
     <span>Projects</span>
 
-    <a class="link-secondary" href="{{ url_for('projects.new_project') }}" aria-label="Add a new project">
+    <a class="link-secondary" href="" aria-label="Add a new project">
       
       <i class="bi bi-plus-circle"></i>
     </a>
@@ -48,9 +48,39 @@
         Learn to Write
       </a>
     </li>
+    <li>
+      <a href="#" class="nav-link text-white d-flex align-items-center">
+        <span class="project-badge bg-primary">LTW</span>
+        Learn to Write
+      </a>
+    </li>
+    <li>
+      <a href="#" class="nav-link text-white d-flex align-items-center">
+        <span class="project-badge bg-primary">LTW</span>
+        Learn to Write
+      </a>
+    </li>
+    <li>
+      <a href="#" class="nav-link text-white d-flex align-items-center">
+        <span class="project-badge bg-primary">LTW</span>
+        Learn to Write
+      </a>
+    </li>
+    <li>
+      <a href="#" class="nav-link text-white d-flex align-items-center">
+        <span class="project-badge bg-primary">LTW</span>
+        Learn to Write
+      </a>
+    </li>
+    <li>
+      <a href="#" class="nav-link text-white d-flex align-items-center">
+        <span class="project-badge bg-primary">LTW</span>
+        Learn to Write
+      </a>
+    </li>
   </ul>
 
-
+<!-- 
   <div class="project-list">
     {% for project in projects %}
         {% if project.id == session.active_project_id %}
@@ -74,6 +104,6 @@
         {% endif %}
 
     {% endfor %}
-  </div>
+  </div> -->
 
 </div>

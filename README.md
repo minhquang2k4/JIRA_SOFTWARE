@@ -4,11 +4,13 @@ Code thì tách nhánh từ nhánh dev, sau khi code xog 1 tính năng nào đó
 
 sau đó nhờ 1 người khác merge. lưu ý ko được tự merge để ng khác review code trước.
 
-## Khởi tạo môi trường ảo
+## Khởi tạo
 
 - Chạy lệnh tạo môi trường ảo: python -m venv .venv
 - activate môi trường ảo: .venv\Scripts\activate
 - Chạy lênh pip install -r requirements.txt để tải các thư viện về
+- tạo foder database. trong đó tạo db có tên JIRA_DB.db (tạo bằng sqlite thầy chỉ)
+- update db theo hướng dẫn ở dưới
 - Chạy project: python app.py
 
 ## Quy trình code:

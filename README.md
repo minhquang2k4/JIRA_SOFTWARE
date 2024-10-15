@@ -27,4 +27,9 @@ sau đó nhờ 1 người khác merge. lưu ý ko được tự merge để ng k
   * thực hiện push
 * Nhờ 1 người khác merge
 
+## Cập nhập db
+
+* Sau khi sửa hoặc thêm model chạy lệnh: flask db migrate -m "Describe your changes here"
+* Sau đó: flask db upgrade
+
 # Note: để khoảng cách tab = 2. Không để 4

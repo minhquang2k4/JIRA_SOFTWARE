@@ -19,6 +19,8 @@ migrate = Migrate(app, db)
 scheduler = APScheduler()
 # config bcrypt mã hóa password
 bcrypt = Bcrypt(app)
+# config login manager
+login_manager = LoginManager(app)
 
 # Config router
 from JIRA import routers
@@ -33,5 +35,3 @@ app.register_blueprint(auth_blueprint, url_prefix='/auth')
 app.register_blueprint(user_blueprint, url_prefix='/users')
 app.register_blueprint(task_blueprint, url_prefix='/tasks')
 app.register_blueprint(project_blueprint, url_prefix='/projects')
-
-# login_manager = LoginManager(app)

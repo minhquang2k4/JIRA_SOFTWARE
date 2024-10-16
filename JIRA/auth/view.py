@@ -57,4 +57,4 @@ def register():
 @auth_blueprint.route('/logout')
 def logout():
   logout_user()
-  return redirect(url_for('auth.login'))
+  return redirect(url_for('index'))

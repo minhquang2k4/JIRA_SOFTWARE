@@ -19,11 +19,16 @@
     <link rel="stylesheet" href="../static/css/style.css">
   </head>
   <body>
+    <div class="base">
+      {% include 'sidebar.html' %}
+      <div class="content">
+        {% include 'header.html' %}
+        <div>
+          {% block content %}{% endblock %}
+        </div>
+      </div>
+    </div>
 
-    {% include 'header.html' %}
-    {% include 'sidebar.html' %}
-
-    {% block content %}{% endblock %}
 
 
     <script src="../static/js/script.js"></script>

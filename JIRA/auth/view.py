@@ -26,7 +26,7 @@ def login():
     attempted_user = User.query.filter_by(username=form.username.data).first()
     if attempted_user and attempted_user.check_password_correction(attempted_password=form.password.data):
       login_user(attempted_user)  # Lưu thông tin user vào session
-      return redirect(url_for('index'))
+      return redirect(url_for('home'))
   return render_template('login.html', form=form)
 
 

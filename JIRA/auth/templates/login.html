@@ -14,18 +14,22 @@
 </head>
 
 <body style="height: 100vh">
-  <h1>Login</h1>
-  <form method="post" class="form-signin pt-2 pb-2">
-    {{ form.hidden_tag() }}
-    {{ form.username.label }} {{ form.username(class="form-control my-2", placeholder="Username") }}
-    {{ form.password.label }} {{ form.password(class="form-control my-2", placeholder="Password") }}
+  <div class="login-background">
+    <div class="login">
+      <h1 class="login-title">Login</h1>
+      <form method="post" class="form-signin pt-2 pb-2 login-form">
+        {{ form.hidden_tag() }}
+        {{ form.username.label }} {{ form.username(class="form-control my-2", placeholder="Username") }}
+        {{ form.password.label }} {{ form.password(class="form-control my-2", placeholder="Password") }}
 
-    <div class=" d-flex justify-content-end  mb-4">
-      <!-- Simple link -->
-      <a href="#!">Forgot password?</a>
+        {{ form.submit(class="btn btn-primary btn-block mb-4 login-button mt-4") }}
+
+        <div class="d-flex justify-content-center">Don't have an account? <a href="{{ url_for('auth.register') }}"
+          class="login-a">Register</a></div>
+      </form>
     </div>
-    {{ form.submit(class="btn btn-primary btn-block mb-4") }}
-  </form>
+  </div>
+  
 
   <!-- Bootstrap -->
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"

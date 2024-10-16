@@ -1,3 +1,4 @@
+/* Sider */
 .sidebar {
   width: 280px;
   height: 100vh;
@@ -5,19 +6,23 @@
   color: #ecf0f1;
   padding: 20px;
 }
+
 .sidebar a {
   color: #ecf0f1;
   text-decoration: none;
   transition: all 0.3s ease;
 }
+
 .sidebar a:hover {
   color: #3498db;
 }
+
 .sidebar-heading {
   font-size: 0.75rem;
   text-transform: uppercase;
   letter-spacing: 0.1em;
 }
+
 .project-badge {
   width: 30px;
   height: 30px;
@@ -30,10 +35,129 @@
 }
 
 .project-sidebar {
-  color: #f0f0f0; 
-  font-family: Arial, sans-serif; 
-  font-size: 16px; 
-  font-weight: 500; 
-  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2); 
+  color: #f0f0f0;
+  font-family: Arial, sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
   line-height: 1.5;
 }
+
+/* End Sidebar */
+
+/* Login */
+.login-background {
+  background-image: url('https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  height: 100vh;
+}
+
+.login {
+  width: 30%;
+  border: 1px solid none;
+  padding: 30px;
+  border-radius: 20px;
+  background-color: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+  position: absolute;
+  top: 50%;
+  /* Đưa form vào giữa màn hình theo chiều dọc */
+  left: 50%;
+  /* Đưa form vào giữa màn hình theo chiều ngang */
+  transform: translate(-50%, -50%);
+}
+
+.login .login-title {
+  text-align: center;
+  color: #fff;
+}
+
+ .login-button {
+  display: block;
+  /* Giúp nút thành block element */
+  width: fit-content;
+  /* Đảm bảo nút vừa với nội dung */
+  margin: 0 auto;
+  /* Căn giữa nút bấm trong form */
+  width: 100%;
+  background-color: #3498db;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.register-row1 {
+  display: flex;
+  justify-content: space-between;
+}
+
+.register-row1-col1 {
+  width: 48%;
+}
+
+.login-a {
+  margin-left: 10px;
+  text-decoration: none;
+}
+
+/* End Login */
+
+/* Page-Index */
+.page-index {
+  background-image: url('https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  height: 100vh;
+}
+
+.page-home {
+  border: 1px solid none;
+  padding: 20px 50px;
+  background-color: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+  border: none;
+  color: white;
+  transition: all 0.3s ease-in-out;
+  border-radius: 10px;
+  width: 20%;
+  height: 30%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 25px;
+}
+
+.page-home:hover {
+  background-color: rgba(255, 255, 255, 0.3);
+  transform: scale(1.05);
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+}
+
+.page-home button{
+  background-color: #3498db;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+.page-home button a{
+  color: white;
+  text-decoration: none;
+}
+
+/* End Page-Index */

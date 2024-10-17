@@ -43,6 +43,15 @@
   line-height: 1.5;
 }
 
+/* Điều chỉnh khoảng cách */
+.sidebar .nav {
+  margin-bottom: 0;
+}
+
+.sidebar hr {
+  margin: 1rem 0;
+}
+
 /* End Sidebar */
 
 /* Login */

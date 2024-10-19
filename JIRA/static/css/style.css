@@ -2,13 +2,22 @@
 .sidebar {
   width: 280px;
   height: 100vh;
-  background-color: #2c3e50;
-  color: #ecf0f1;
+  color: black;
   padding: 20px;
+  box-shadow: 1px 0 8px rgba(0, 0, 0, 0.2);
+  background-color: #fff;
+  z-index: 2;
 }
 
+.sidebar .logo {
+  background: linear-gradient(to right, #3498db, #8e44ad);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+
 .sidebar a {
-  color: #ecf0f1;
+  color: black;
   text-decoration: none;
   transition: all 0.3s ease;
 }
@@ -32,15 +41,15 @@
   border-radius: 50%;
   font-weight: bold;
   margin-right: 10px;
+  background: linear-gradient(to right, #3498db, #8e44ad);
 }
 
 .project-sidebar {
-  color: #f0f0f0;
-  font-family: Arial, sans-serif;
-  font-size: 16px;
-  font-weight: 500;
-  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
-  line-height: 1.5;
+  background: linear-gradient(to right, #3498db, #8e44ad);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-size: 20px;
+  font-weight: 550;
 }
 
 /* Điều chỉnh khoảng cách */
@@ -75,9 +84,7 @@
   backdrop-filter: blur(10px);
   position: absolute;
   top: 50%;
-  /* Đưa form vào giữa màn hình theo chiều dọc */
   left: 50%;
-  /* Đưa form vào giữa màn hình theo chiều ngang */
   transform: translate(-50%, -50%);
 }
 
@@ -88,11 +95,8 @@
 
  .login-button {
   display: block;
-  /* Giúp nút thành block element */
   width: fit-content;
-  /* Đảm bảo nút vừa với nội dung */
   margin: 0 auto;
-  /* Căn giữa nút bấm trong form */
   width: 100%;
   background-color: #3498db;
   color: white;
@@ -171,9 +175,53 @@
 
 /* End Page-Index */
 
+/* header */
 .navbar{
-  background-color: #2c3e50;
+  background-color: #fff;
+  box-shadow: 8px 1px 8px rgba(0, 0, 0, 0.2);
+  z-index: 2;
 }
-.navbar-item a{
-  color: #ecf0f1;
+
+.navbar .account {
+  display: flex; 
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
 }
+
+.navbar .input-group {
+  width: 40%;
+  margin: 0 auto;
+}
+.navbar .input-group input {
+  background-color: #f5f5f5;
+}
+
+.navbar .input-group input::placeholder {
+  color: darkgray;
+}
+
+.btn-outline-primary {
+  --bs-btn-border-color: #418BD4;
+  --bs-btn-color: #418BD4;
+  --bs-btn-active-bg: #418BD4;
+  --bs-btn-hover-bg: #418BD4;
+  border-radius: 20px;
+}
+
+.search {
+  /* border: none; */
+  border-radius: 20px;
+  border: 1px solid #418BD4;
+}
+
+.navbar .dropdown-toggle::after {
+  display: none;
+}
+
+.navbar .avt {
+  --bs-btn-border-color: none;
+  --bs-btn-active-bg: none;
+  --bs-btn-hover-bg: none;
+}
+/* end header */

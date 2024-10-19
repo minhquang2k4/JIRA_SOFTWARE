@@ -1,61 +1,32 @@
-
-  <!-- 
-  <div class="project-list">
-    {% for project in projects %}
-        {% if project.id == session.active_project_id %}
-            <div class="project-item active"
-                 onclick="window.location.href='{{ url_for('projects.project_by_id', project_id=project.id) }}'">
-                <p>{{ project.name }}</p>
-                <span>
-                    <button class="btn btn-primary btn-sm"
-                            onclick="event.stopPropagation(); window.location.href='/projects/delete/{{ project.id }}'">
-                        Delete
-                    </button>
-                </span>
-            </div>
-
-        {% else %}
-            <div class="project-item"
-                 onclick="window.location.href='{{ url_for('projects.project_by_id', project_id=project.id) }}'">
-                <p>{{ project.name }}</p>
-                <span>...</span>
-            </div>
-        {% endif %}
-
-    {% endfor %}
-  </div> -->
-<!-- </div> -->
-
-
 <div class="sidebar d-flex flex-column flex-shrink-0">
-  <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
+  <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-decoration-none logo">
     <i class="bi bi-clipboard me-2" style="font-size: 1.5rem"></i>
-    <span class="fs-4">JIRA SoftWare</span>
+    <span class="fs-4 logo">JIRA SoftWare</span>
   </a>
-  <hr class="my-3">
+  <div class="hr"></div>
   <ul class="nav nav-pills flex-column">
     <li class="nav-item">
-      <a href="" class="nav-link active d-flex align-items-center" aria-current="page">
+      <a href="/home" class="nav-link active d-flex align-items-center" aria-current="page">
         <i class="bi bi-check-square me-2"></i>
         All Tasks
       </a>
     </li>
     <li>
-      <a href="" class="nav-link text-white d-flex align-items-center">
-        <i class="bi bi-star me-2"></i>
+      <a href="" class="nav-link d-flex align-items-center">
+        <i class="bi bi-person me-2"></i>
         Users
       </a>
     </li>
     {% if current_user.is_admin %}
     <li>
-      <a href="" class="nav-link text-white d-flex align-items-center">
+      <a href="" class="nav-link d-flex align-items-center">
         <i class="bi bi-star me-2"></i>
         Users
       </a>
     </li>
     {% endif %}
   </ul>
-  <hr class="my-3">
+  <div class="hr"></div>
   <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mb-2 text-muted">
     <span class="project-sidebar">Projects</span>
     <a class="link-secondary" href="" aria-label="Add a new project">
@@ -64,21 +35,21 @@
   </h6>
   <ul class="nav flex-column">
     <li>
-      <a href="#" class="nav-link text-white d-flex align-items-center">
-        <span class="project-badge bg-primary">LTW</span>
-        Learn to Write
+      <a href="#" class="nav-link d-flex align-items-center">
+        <span class="project-badge bg-primary">L</span>
+        Lập trình web
       </a>
     </li>
     <li>
-      <a href="#" class="nav-link text-white d-flex align-items-center">
-        <span class="project-badge bg-primary">LTW</span>
-        Learn to Write
+      <a href="#" class="nav-link d-flex align-items-center">
+        <span class="project-badge bg-primary">J</span>
+        Java
       </a>
     </li>
     <li>
-      <a href="#" class="nav-link text-white d-flex align-items-center">
-        <span class="project-badge bg-primary">LTW</span>
-        Learn to Write
+      <a href="#" class="nav-link d-flex align-items-center">
+        <span class="project-badge bg-primary">P</span>
+        Project JIRA
       </a>
     </li>
   </ul>

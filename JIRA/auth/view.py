@@ -42,7 +42,7 @@ def register():
       name = form.name.data,
       username = form.username.data,
       email = form.email.data,
-      password = form.password1.data
+      password = form.password.data
     )
     try:
       db.session.add(user)

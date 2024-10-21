@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% block title %}
+USERS
+{% endblock %}
+
+{% block content %}
+{% for user in users %}
+<div style="margin-bottom: 30px;">
+  <a href="">
+    <div>{{ user.name or '' }}</div>
+  </a>
+
+  <a href="">
+    <div>{{ user.username }}</div>
+  </a>
+
+  <a href="">
+    <div>{{ user.email or '' }}</div>
+  </a>
+</div>
+{% endfor %}
+{% endblock %}

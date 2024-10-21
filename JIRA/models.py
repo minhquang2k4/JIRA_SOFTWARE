@@ -54,3 +54,46 @@ class User(db.Model, UserMixin):
   def __repr__(self):
     return '<User %r>' % self.username
   
+class Project(db.Model):
+  __tablename__ = 'project'
+  id = db.Column(db.Integer, primary_key=True)  
+  name = db.Column(db.String(255))
+  description = db.Column(db.Text)
+  status = db.Column(db.String(100))
+  active = db.Column(db.Boolean, default=True)
+  sequence = db.Column(db.Integer)
+  manager_id = db.Column(db.Integer, db.ForeignKey('user.id'))
+  date_start = db.Column(db.Date)
+  date_end = db.Column(db.Date)
+  created_at = db.Column(db.DateTime, default=db.func.current_timestamp())
+  updated_at = db.Column(db.DateTime, default=db.func.current_timestamp())
+  create_uid = db.Column(db.Integer, default=0)
+  write_uid = db.Column(db.Integer, default=0)
+  tasks = db.relationship('Task', backref='project')
+  # backref để tạo ra một thuộc tính ảo trong class Task để lấy ra thông tin của project
+  progress = db.Column(db.Float)
+
+  def __repr__(self):
+    return '<Project %r>' % self.name
+  
+class Task(db.Model):
+  __tablename__ = 'task'
+  id: int
+  name: str
+  description: str
+  id = db.Column(db.Integer, primary_key=True)
+  project_id = db.Column(db.Integer, db.ForeignKey('project.id'))
+  user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
+  status = db.Column(db.String(100))
+  name = db.Column(db.String(255))
+  description = db.Column(db.Text)
+  active = db.Column(db.Boolean, default=True)
+  priority = db.Column(db.Integer)
+  sequence = db.Column(db.Integer)
+  date_start = db.Column(db.Date)
+  date_end = db.Column(db.Date)
+  created_at = db.Column(db.DateTime, default=db.func.current_timestamp())
+  updated_at = db.Column(db.DateTime, default=db.func.current_timestamp())
+
+  def __repr__(self):
+    return '<Task %r>' % self.name

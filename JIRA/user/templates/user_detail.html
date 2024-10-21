@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+{% block title %}
+USERS
+{% endblock %}
+{% block content %}
+<div class="user-container">
+  <div class="container-box">
+    <h1>User profile</h1>
+    <div class="user-box">
+      <div>
+        <div class="mt-2">
+          <label>Name:</label>
+          <span>{{ user.name }}</span>
+        </div>
+
+        <div class="mt-2">
+          <label>Username:</label>
+          <span>{{ user.username }}</span>
+        </div>
+        <div class="mt-2">
+          <label for="email">Email:</label>
+          <span id="email">
+            {{ user.email or '' }}
+          </span>
+        </div>
+        <div class="mt-2">
+          <label for="phone">Phone:</label>
+          <span id="phone">
+            {{ user.phone or 'not found' }}
+          </span>
+        </div>
+
+        <div class="mt-2">
+          <label for="is_admin">Admin:</label>
+          <span id="is_admin">
+            {% if user.is_admin %}
+            <input type="checkbox" checked disabled>
+            {% else %}
+            <input type="checkbox" disabled>
+            {% endif %}
+          </span>
+        </div>
+      </div>
+
+      <div class="user-avatar">
+        <span>{{ user.username }}</span>
+        <button>+ Upload Image</button>
+      </div>
+    </div>
+
+  </div>
+
+</div>
+{% endblock %}

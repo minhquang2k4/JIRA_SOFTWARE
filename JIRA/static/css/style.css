@@ -44,6 +44,10 @@
   background: linear-gradient(to right, #3498db, #8e44ad);
 }
 
+.delete-btn {
+  color: red;
+}
+
 .project-sidebar {
   background: linear-gradient(to right, #3498db, #8e44ad);
   -webkit-background-clip: text;
@@ -233,3 +237,86 @@
   --bs-btn-hover-bg: none;
 }
 /* end header */
+
+/* content page home */
+
+.content-header {
+  background-color: #7f898f;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 16px;
+}
+.content-header h2 {
+  font-family: Inter;
+  color: #eee;
+  margin: 0;
+}
+.content-header button {
+  color: #ffffff;
+  background-color: #66a7ff;
+  transition: background-color 0.15s;
+}
+.content-header button:hover {
+  background-color: #4294ff;
+  color: #ffffff;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  background-color: #ccc;
+  max-width: calc(100vw - var(--sidebar-width));
+  width: 100%;
+}
+
+.content-container {
+  padding: 12px;
+}
+.content-container .content-option {
+  background-color: #93b0c5;
+  border-radius: 10px 10px 0 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px;
+  border-bottom: 2px dashed #fff;
+}
+.content-container .content-task {
+  background-color: #fff;
+  padding: 8px 12px;
+  display: flex;
+}
+.content-container .content-task > div {
+  width: 50%;
+  padding: 0 8px;
+}
+.content-container .content-task .content-task-line {
+  padding: 8px 0;
+  display: flex;
+  align-items: center;
+}
+.content-container .content-task .content-task-line > label {
+  font-weight: 500;
+  font-size: 17px;
+  min-width: 30%;
+  color: #555;
+}
+.content-container .content-task .content-task-line > input:not([type='checkbox']),
+.content-container .content-task .content-task-line > select {
+  padding: 8px;
+  flex: 1;
+}
+.content-container .content-task .content-task-line > input[type='checkbox'] {
+  width: 18px !important;
+  height: 18px;
+}
+.content-container .content-desc {
+  border-radius: 0 0 10px 10px;
+  background-color: #fff;
+  padding: 12px;
+}
+.content-container .content-desc > strong {
+  color: #333;
+  margin-right: 8px;
+}

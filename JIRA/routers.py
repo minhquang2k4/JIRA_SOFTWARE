@@ -3,6 +3,7 @@ from flask_login import current_user
 from functools import wraps
 
 from JIRA import app
+from JIRA.models import *
 
 
 def login_required(f):
@@ -19,5 +20,7 @@ def index():
 
 @app.route('/home')
 @login_required
-def home():
-  return render_template('home.html')
+def home(project_id=None, task_list=None, task_id=None):
+  projects = Project.query.filter(Project.manager_id == current_user.id).all()
+
+  return render_template('home.html', projects=projects)

@@ -8,12 +8,12 @@
         </button>
       </form>
       <div class="nav-item me-3 me-lg-0 d-flex align-items-center">
-        <a class="nav-link account" href="#">
+        <a class="nav-link account" href="/users/{{current_user.id}}">
           {{ current_user.username }}
         </a>
         <div class="dropdown">
           <button class="dropdown-toggle btn btn-outline-primary avt" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-            <img src="../static/image/avt.jpg" class="rounded-circle dropdown-toggle" height="40" alt="" loading="lazy" />
+            <img src="{{ url_for('static', filename='image/avt.jpg') }}" class="rounded-circle dropdown-toggle" height="40" alt="" loading="lazy" />
           </button>
           <ul class="dropdown-menu dropdown-menu-end">
             <li><a class="dropdown-item" href="#">Account</a></li>

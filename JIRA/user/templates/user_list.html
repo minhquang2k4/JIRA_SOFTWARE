@@ -1,22 +1,31 @@
 {% extends 'base.html' %}
+
 {% block title %}
 USERS
 {% endblock %}
 
 {% block content %}
-{% for user in users %}
-<div style="margin-bottom: 30px;">
-  <a href="">
-    <div>{{ user.name or '' }}</div>
-  </a>
-
-  <a href="">
-    <div>{{ user.username }}</div>
-  </a>
-
-  <a href="">
-    <div>{{ user.email or '' }}</div>
-  </a>
+<div class="user-list-container">
+  <h1 class="title">User List</h1>
+  <div class="search-container">
+    <button class="btn-create-user btn btn-primary" onclick="window.location.href='/users/new'">Create New User</button>
+    <input type="text" id="searchInput" placeholder="Search users...">
+  </div>
 </div>
-{% endfor %}
+<div class="user-list">
+  <div class="user-grid" id="userGrid">
+    {% for user in users %}
+    <div class="user-card">
+      <div class="user-avatar">{{ user.name or 'No Name' }}</div>
+      <div class="user-info">
+        <p class="user-username">Username: {{ user.username }}</p>
+        <p class="user-email">Email: {{ user.email or 'No Email' }}</p>
+      </div>
+      <div class="user-actions">
+        <button class="btn-user-list btn btn-primary" onclick="window.location.href='/users/{{ user.id }}'">View Profile</button>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+</div>
 {% endblock %}

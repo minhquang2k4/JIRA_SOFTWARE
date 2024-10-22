@@ -12,7 +12,9 @@ project_blueprint = Blueprint('projects', __name__, template_folder='templates',
 
 @project_blueprint.route('/')
 def project():
-  return render_template('project_list.html')
+
+  projects = Project.query.filter(Project.manager_id == current_user.id).all()
+  return render_template('project_list.html', projects=projects)
 
 @project_blueprint.route('/new', methods=['GET', 'POST'])
 # @login_required
@@ -47,11 +49,12 @@ def edit_project(id):
   if form.validate_on_submit():
     project.name = form.name.data
     project.description = form.description.data
-    project.sequence = form.sequence.data
-    project.manager_id = form.manager_id.data
+    # project.sequence = form.sequence.data
+    # project.manager_id = form.manager_id.data
     db.session.commit()
     return redirect(url_for('projects.project_by_id', id=id))
-  return render_template('project_edit.html', form=form, project=project)
+  projects = Project.query.filter(Project.manager_id == current_user.id).all()
+  return render_template('project_edit.html', form=form, project=project, projects=projects)
 
 
 @project_blueprint.route('/delete/<int:project_id>/', methods=['POST', 'GET', 'DELETE'])

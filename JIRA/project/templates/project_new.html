@@ -4,17 +4,20 @@
 {% endblock %}
 
 {% block content %}
-  <div>
-    <h1 class="text-center">NEW project</h1>
+<div class="project-container">
+  <h1 class="project-title">Tạo Nhiệm Vụ Mới</h1>
 
-    <form method="post" >
-      {{ form.hidden_tag() }}
-      {{ form.name.label }}
+  <form method="post" class="project-form">
+    {{ form.hidden_tag() }}
+    <div class="project-form-group">
+      {{ form.name.label(class="form-label") }}
       {{ form.name(class="form-control") }}
-      {{ form.description.label }}
+    </div>
+    <div class="project-form-group">
+      {{ form.description.label(class="form-label") }}
       {{ form.description(class="form-control") }}
-      {{ form.submit(class="submit") }}
-    </form>
-
-  </div>
+    </div>
+    {{ form.submit(class="submit-btn") }}
+  </form>
+</div>
 {% endblock %}

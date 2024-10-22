@@ -16,7 +16,7 @@
             <img src="{{ url_for('static', filename='image/avt.jpg') }}" class="rounded-circle dropdown-toggle" height="40" alt="" loading="lazy" />
           </button>
           <ul class="dropdown-menu dropdown-menu-end">
-            <li><a class="dropdown-item" href="#">Account</a></li>
+            <li><a class="dropdown-item" href="/users/{{current_user.id}}">Profile</a></li>
             <li><a class="dropdown-item" href="/auth/logout">Logout</a></li>
           </ul>
         </div>

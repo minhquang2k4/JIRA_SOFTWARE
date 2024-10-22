@@ -4,10 +4,19 @@
 {% endblock %}
 
 {% block content %}
-    <form method="post">
+<div class="project-edit-container">
+    <h1 class="project-edit-title">Edit Project: {{ project.name }}</h1>
+    <form method="post" class="project-edit-form">
         {{ form.hidden_tag() }}
-        {{ form.name.label }} {{ form.name() }}
-        {{ form.description.label }} {{ form.description() }}
-        {{ form.submit() }}
+        <div class="edit-form-group">
+            {{ form.name.label(class="form-label") }}
+            {{ form.name(class="form-input") }}
+        </div>
+        <div class="edit-form-group">
+            {{ form.description.label(class="form-label") }}
+            {{ form.description(class="form-input form-textarea") }}
+        </div>
+        {{ form.submit(class="form-submit") }}
     </form>
+</div>
 {% endblock %}

@@ -1,35 +1,39 @@
 {% extends 'base.html' %}
 {% block title %}
-  PROJECT
+PROJECT
 {% endblock %}
 
 {% block content %}
-    <table class="table table-bordered table-hover mt-4">
-        <thead class="thead-dark">
-            <tr>
-                <th>Project Name</th>
-                <th>Project Description</th>
-            </tr>
-        </thead>
-        <tbody>
-            {% for project in projects %}
-                <tr>
-                    <td>
-                        <a href="/projects/{{ project.id }}">
-                            <div>
-                                {{ project.name }}
-                            </div>
-                        </a>
-                    </td>
-                    <td>
-                        <a href="/projects/{{ project.id }}">
-                            <div>
-                                {{ project.description }}
-                            </div>
-                        </a>
-                    </td>
-                </tr>
-            {% endfor %}
-        </tbody>
-    </table>
+<div class="project-table-container">
+  <table class="project-table">
+    <thead class="project-table-header">
+      <tr>
+        <th>Project Name</th>
+        <th>Project Description</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody class="project-table-body">
+      {% for project in projects %}
+      <tr class="project-row">
+        <td class="project-cell">
+          <a href="/projects/{{ project.id }}" class="project-link">
+            <div class="project-name">{{ project.name }}</div>
+          </a>
+        </td>
+        <td class="project-cell">
+          <a href="/projects/{{ project.id }}" class="project-link">
+            <div class="project-description">{{ project.description }}</div>
+          </a>
+        </td>
+        <td class="project-cell">
+          <a href="/projects/{{ project.id }}/edit" class="project-edit-link">
+            <div class="project-edit-button">Edit</div>
+          </a>
+        </td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
 {% endblock %}

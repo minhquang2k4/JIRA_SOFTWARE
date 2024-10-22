@@ -1,0 +1,62 @@
+{% extends 'base.html' %}
+{% block title %}Edit User Profile{% endblock %}
+
+{% block content %}
+<div class="profile-container">
+  <div class="profile-header">
+    <div class="avatar-container">
+      <div class="avatar">{{ form.username.data[:1].upper() }}</div>
+    </div>
+    <div class="user-title">
+      <h1>Edit Profile</h1>
+      <p>@{{ form.username.data }}</p>
+    </div>
+  </div>
+  <form method="post" class="profile-content">
+    {{ form.csrf_token }}
+    {{ form.hidden_tag() }}
+    <div class="info-section">
+      <h2>Personal Information</h2>
+      <div class="info-grid">
+        <div class="info-item">
+          <i class="icon-user"></i>
+          <div>
+            {{ form.name.label }}
+            {{ form.name(class="form-input") }}
+          </div>
+        </div>
+        <div class="info-item">
+          <i class="icon-at"></i>
+          <div>
+            {{ form.username.label }}
+            {{ form.username(class="form-input") }}
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="info-section">
+      <h2>Contact Information</h2>
+      <div class="info-grid">
+        <div class="info-item">
+          <i class="icon-email"></i>
+          <div>
+            {{ form.email.label }}
+            {{ form.email(class="form-input") }}
+          </div>
+        </div>
+        <div class="info-item">
+          <i class="icon-phone"></i>
+          <div>
+            {{ form.phone.label }}
+            {{ form.phone(class="form-input") }}
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="profile-actions-edit">
+      {{ form.submit(class="btn btn-primary") }}
+      <button type="button" class="btn btn-secondary" onclick="window.location.href='/users/{{ user.id }}'">Cancel</button>
+    </div>
+  </form>
+</div>
+{% endblock %}

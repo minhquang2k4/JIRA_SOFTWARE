@@ -12,7 +12,9 @@ project_blueprint = Blueprint('projects', __name__, template_folder='templates',
 
 @project_blueprint.route('/')
 def project():
-  return render_template('project_list.html')
+
+  projects = Project.query.filter(Project.manager_id == current_user.id).all()
+  return render_template('project_list.html', projects=projects)
 
 @project_blueprint.route('/new', methods=['GET', 'POST'])
 # @login_required

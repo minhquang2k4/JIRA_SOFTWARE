@@ -4,8 +4,32 @@
 {% endblock %}
 
 {% block content %}
-  <div>
-    <h1 class="text-center">Project</h1>
-    <p>Project description</p>
-  </div>
+    <table class="table table-bordered table-hover mt-4">
+        <thead class="thead-dark">
+            <tr>
+                <th>Project Name</th>
+                <th>Project Description</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for project in projects %}
+                <tr>
+                    <td>
+                        <a href="/projects/{{ project.id }}">
+                            <div>
+                                {{ project.name }}
+                            </div>
+                        </a>
+                    </td>
+                    <td>
+                        <a href="/projects/{{ project.id }}">
+                            <div>
+                                {{ project.description }}
+                            </div>
+                        </a>
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
 {% endblock %}

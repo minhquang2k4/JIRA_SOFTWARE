@@ -15,8 +15,15 @@
       integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
       crossorigin="anonymous"
     />
+<<<<<<< Updated upstream
     <link rel="stylesheet" href="../static/css/default.css">
     <link rel="stylesheet" href="../static/css/style.css">
+=======
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/default.css') }}">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Sortable/1.15.0/Sortable.min.js"></script>
+>>>>>>> Stashed changes
   </head>
   <body>
     <div class="base">
@@ -25,7 +32,11 @@
         {% include 'header.html' %}
         <div>
           {% block content %}{% endblock %}
+<<<<<<< Updated upstream
 
+=======
+           
+>>>>>>> Stashed changes
         </div>
       </div>
     </div>

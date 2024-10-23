@@ -1,0 +1,115 @@
+{% extends 'base.html' %}
+{% block title %}
+TASKS
+{% endblock %}
+
+{% block content %}
+  <div class="content" id="content-window">
+    <div class="content-header">
+      <h2>{{ task.name }}</h2>
+      <h2>
+        {{mode}}
+      </h2>
+    </div>
+    <div class="content-container">
+      <div class="content-option">
+        {%if mode != 'edit'%}
+        <button class="btn btn-primary" onclick="editTask({{ task.id }})">
+          Edit Task
+        </button>
+        {%else%}
+        <div class="m-1">
+          <button class="btn btn-primary" type="submit" onclick="saveTask({{ task.id }})">
+            Save Task
+          </button>
+          <button class="btn btn-danger" onclick="window.location.href='/tasks/{{ task.id }}/edit'">
+            Cancel
+          </button>
+          </div>
+      {%endif%} 
+      <div>
+        <button id="todo"
+                class="btn {% if task.status == 'todo' %} btn-primary {% else %}btn-secondary {% endif %}"
+                onclick="updateTaskStatus('{{ task.id }}', 'todo')">
+            To Do
+        </button>
+        <button id="in-progress"
+                class="btn {% if task.status == 'in-progress' %} btn-primary {% else %}btn-secondary {% endif %}"
+                onclick="updateTaskStatus('{{ task.id }}', 'in-progress')">
+            In Progress
+        </button>
+        <button id="done"
+                class="btn {% if task.status == 'done' %} btn-primary {% else %}btn-secondary {% endif %}"
+                onclick="updateTaskStatus('{{ task.id }}', 'done')">
+            Done
+        </button>
+
+    </div>
+</div>
+
+
+<div class="content-task">
+    <div>
+        <div class="content-task-line">
+            <label for="name">Task Name:</label>
+            <input type="text" id="name" name="name" value="{{ task.name }}" {% if mode != 'edit' %}
+                   disabled {% endif %}/>
+        </div>
+        <div class="content-task-line">
+            <label for="active">Active:</label>
+            <input type="checkbox" id="active" name="active" {% if task.active %}
+                   checked {% endif %} {% if mode != 'edit' %} disabled {% endif %}/>
+        </div>
+        <div class="content-task-line">
+            <label for="priority">Priority:</label>
+            <select id="priority" name="priority" {% if mode != 'edit' %} disabled {% endif %}>
+                <option value="low" {% if task.priority == 'low' %} selected {% endif %}>Low</option>
+                <option value="medium" {% if task.priority == 'medium' %} selected {% endif %}>Medium
+                </option>
+                <option value="high" {% if task.priority == 'high' %} selected {% endif %}>High</option>
+            </select>
+        </div>
+    </div>
+
+    <div>
+        <div class="content-task-line">
+            <label for="project_id">Project:</label>
+            <select id="project_id" name="project_id" {% if mode != 'edit' %} disabled {% endif %}>
+                {% for project in projects %}
+                    <option value="{{ project.id }}" {% if task.project_id == project.id %} selected
+                    {% endif %}>{{ project.name }}</option>
+                {% endfor %}
+            </select>
+        </div>
+        <div class="content-task-line">
+            <label for="status">Status:</label>
+            <select id="status" name="status" {% if mode != 'edit' %} disabled {% endif %}>
+                <option value="todo" {% if task.status == 'todo' %} selected {% endif %}>To Do</option>
+                <option value="in-progress" {% if task.status == 'in-progress' %} selected {% endif %}>
+                    In Progress
+                </option>
+                <option value="done" {% if task.status == 'done' %} selected {% endif %}>Done</option>
+            </select>
+        </div>
+        <div class="content-task-line">
+            <label for="date_start">Start Date:</label>
+            <input type="date" id="date_start" name="date_start" value="{{ task.date_start }}"
+                    {% if mode != 'edit' %} disabled {% endif %}/>
+        </div>
+        <div class="content-task-line">
+            <label for="date_end">Due Date:</label>
+            <input type="date" id="date_end" name="date_end" value="{{ task.date_end }}"
+                    {% if mode != 'edit' %} disabled {% endif %}/>
+        </div>
+    </div>
+</div>
+
+<div class="content-desc" id="description" contenteditable="{{ mode == 'edit' }}">
+    <strong>Description:</strong>
+    <span>{{ task.description or 'Description' }}</span>
+
+</div>
+</div>
+<script src="{{ url_for('static', filename='js/script.js') }}"></script>
+
+{% endblock %}

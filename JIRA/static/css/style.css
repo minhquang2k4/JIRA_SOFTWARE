@@ -165,6 +165,112 @@
 .navbar{
   background-color: #2c3e50;
 }
+<<<<<<< Updated upstream
 .navbar-item a{
   color: #ecf0f1;
+=======
+/* List task */
+.project{
+  background-color: #ccc;
+  white-space: nowrap;
+  position: relative;
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  padding: 12px 32px;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+.project-col{
+  padding: 8px 6px;
+  height: fit-content;
+  background-color: #f5f5f5;
+  width: 320px;
+  margin-right: 12px;
+  border-radius: 15px;
+  border: none;
+  display: inline-flex;
+  flex-direction: column;
+  max-height: 100%;
+}
+
+.project-header{
+  height:32px;
+  padding: 0 6px;
+ 
+}
+
+.project-header h4{
+  
+    user-select: none;
+    color: #555;
+    margin: 0;
+    line-height: 32px;
+    text-transform: capitalize;
+  
+}
+
+.project-detail{
+  flex: 1;
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding: 2px 6px;
+}
+
+.project-detail::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+.project-detail::-webkit-scrollbar-thumb {
+  background-color: #ccc;
+  border-radius: 10px;
+}
+
+.project-detail::-webkit-scrollbar-track {
+  background-color: #f5f5f5;
+  border-radius: 10px;
+}
+
+.task{
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  margin: 8px 0;
+  border-radius: 10px;
+  transition: background-color 0.2s;
+  padding: 8px;
+  background-color: #fff;
+}
+.task:hover{
+  background-color: #8bb2cb;
+  cursor: pointer;
+}
+.task div{
+  color: #6288a1;
+}
+.task div p{
+  flex:1;
+  max-width: 80%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  line-height: 18px;
+  font-size: 16px;
+  font-weight: 600;
+  margin: 0 0 4px 0;
+  color: #6288a1;
+  text-transform: capitalize;
+}
+.task:hover div {
+color: #fff;
+}
+.task:hover div p{
+  color: #fff;
+  }
+.task div span{
+  margin-right: 4px;
+}
+.drag-over{
+  background-color: lightblue;
+  cursor: pointer;
+>>>>>>> Stashed changes
 }

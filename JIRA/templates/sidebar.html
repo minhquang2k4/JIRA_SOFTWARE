@@ -1,73 +1,57 @@
 <div class="sidebar d-flex flex-column flex-shrink-0">
-  <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
+  <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-decoration-none logo">
     <i class="bi bi-clipboard me-2" style="font-size: 1.5rem"></i>
-    <span class="fs-4">JIRA SoftWare</span>
+    <span class="fs-4 logo">JIRA SoftWare</span>
   </a>
-  <hr />
-  <ul class="nav nav-pills flex-column mb-auto">
+  <div class="hr"></div>
+  <ul class="nav nav-pills flex-column">
     <li class="nav-item">
-      <a href="" class="nav-link active d-flex align-items-center" aria-current="page">
+      <a href="/tasks" class="nav-link d-flex align-items-center active" aria-current="page">
         <i class="bi bi-check-square me-2"></i>
         All Tasks
       </a>
     </li>
-
     {% if current_user.is_admin %}
     <li>
-      <a href="" class="nav-link text-white d-flex align-items-center">
+      <a href="{{ url_for('users.user') }}" class="nav-link d-flex align-items-center">
         <i class="bi bi-star me-2"></i>
         Users
       </a>
     </li>
     {% endif %}
   </ul>
-  <hr />
-  <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
-    <span class="project-sidebar">Projects</span>
-
-    <a class="link-secondary" href="" aria-label="Add a new project">
+  <div class="hr"></div>
+  <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mb-2 text-muted">
+    <span class="project-sidebar cursor-pointer" onclick="window.location.href='{{ url_for('projects.project') }}'">Projects</span>
+    <a class="link-secondary add-project" href="{{ url_for('projects.project_new') }}" aria-label="Add a new project">
       <i class="bi bi-plus-circle"></i>
     </a>
   </h6>
-
-  <ul class="nav flex-column mb-2">
-    <li>
-      <a href="#" class="nav-link text-white d-flex align-items-center">
-        <span class="project-badge bg-primary">LTW</span>
-        Learn to Write
-      </a>
-    </li>
-    <li>
-      <a href="#" class="nav-link text-white d-flex align-items-center">
-        <span class="project-badge bg-primary">LTW</span>
-        Learn to Write
-      </a>
-    </li>
-  </ul>
-
-  <!-- 
-  <div class="project-list">
+  <ul class="nav flex-column">
     {% for project in projects %}
-        {% if project.id == session.active_project_id %}
-            <div class="project-item active"
-                 onclick="window.location.href='{{ url_for('projects.project_by_id', project_id=project.id) }}'">
-                <p>{{ project.name }}</p>
-                <span>
-                    <button class="btn btn-primary btn-sm"
-                            onclick="event.stopPropagation(); window.location.href='/projects/delete/{{ project.id }}'">
-                        Delete
-                    </button>
-                </span>
-            </div>
+    {% if project.id == session.active_project_id %}
+    <li class="d-flex justify-content-between align-items-center">
+      <a href="{{ url_for('projects.project_by_id', project_id=project.id) }}"
+        class="nav-link d-flex align-items-center">
+        <span class="project-badge bg-primary">{{ project.name[0] }}</span>
+        {{ project.name }}
+      </a>
 
-        {% else %}
-            <div class="project-item"
-                 onclick="window.location.href='{{ url_for('projects.project_by_id', project_id=project.id) }}'">
-                <p>{{ project.name }}</p>
-                <span>...</span>
-            </div>
-        {% endif %}
+      <button class="btn" onclick="event.stopPropagation(); window.location.href='/projects/delete/{{ project.id }}'">
+        <i class="bi bi-x-circle text-danger"></i>
+      </button>
 
+    </li>
+    {% else %}
+    <li>
+      <a href="{{ url_for('projects.project_by_id', project_id=project.id) }}"
+        class="nav-link d-flex align-items-center">
+        <span class="project-badge">{{ project.name[0] }}</span>
+        {{ project.name }}
+      </a>
+    </li>
+    {% endif %}
     {% endfor %}
-  </div> -->
+
+  </ul>
 </div>

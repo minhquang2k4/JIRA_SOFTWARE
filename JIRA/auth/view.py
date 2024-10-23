@@ -27,6 +27,10 @@ def login():
     if attempted_user and attempted_user.check_password_correction(attempted_password=form.password.data):
       login_user(attempted_user)  # Lưu thông tin user vào session
       return redirect(url_for('home'))
+
+  if form.errors != {}:
+    for err_msg in form.errors.values():
+      flash(f'There was an error with creating a user: {err_msg}', category='danger')
   return render_template('login.html', form=form)
 
 
@@ -38,7 +42,7 @@ def register():
       name = form.name.data,
       username = form.username.data,
       email = form.email.data,
-      password = form.password1.data
+      password = form.password.data
     )
     try:
       db.session.add(user)

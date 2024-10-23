@@ -1,0 +1,65 @@
+{% extends 'base.html' %}
+{% block title %}User Profile{% endblock %}
+
+{% block content %}
+<div class="profile-all-container">
+  <div class="profile-container">
+    <div class="profile-header">
+      <div class="avatar-container">
+        <div class="avatar">{{ user.username[:1].upper() }}</div>
+      </div>
+      <div class="user-title">
+        <h1>{{ user.name }}</h1>
+        <p>@{{ user.username }}</p>
+      </div>
+    </div>
+    <div class="profile-content">
+      <div class="info-section">
+        <h2>Contact Information</h2>
+        <div class="info-grid">
+          <div class="info-item">
+            <i class="icon-email"></i>
+            <div>
+              <label>Email</label>
+              <span>{{ user.email or 'Not provided' }}</span>
+            </div>
+          </div>
+          <div class="info-item">
+            <i class="icon-phone"></i>
+            <div>
+              <label>Phone</label>
+              <span>{{ user.phone or 'Not found' }}</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="info-section">
+        <h2>Account Details</h2>
+        <div class="info-grid">
+          <div class="info-item">
+            <i class="icon-user"></i>
+            <div>
+              <label>Role</label>
+              <span>{{ 'Administrator' if user.is_admin else 'User' }}</span>
+            </div>
+          </div>
+          <div class="info-item">
+            <i class="icon-check"></i>
+            <div>
+              <label>Status</label>
+              <span class="status-badge {% if user.is_active %}active{% else %}inactive{% endif %}">
+                {{ 'Active' if user.is_active else 'Inactive' }}
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="profile-actions">
+      <button class="user-detail-btn btn btn-primary" onclick="window.location.href='/users/{{ user.id }}/edit'">Edit Profile</button>
+      <button class="user-detail-btn btn btn-secondary">Change Password</button>
+    </div>
+  </div>
+</div>
+
+{% endblock %}

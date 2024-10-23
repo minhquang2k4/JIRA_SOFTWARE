@@ -1,20 +1,12 @@
 {% extends 'base.html' %}
 {% block title %}Home{% endblock %}
 {% block content %}
-<<<<<<< Updated upstream
-    <h1>Home</h1>
-    <p>{{current_user.id}}</p>
-    <p>{{current_user.name}}</p>
-    <p>{{current_user.username}}</p>
-    <p>{{current_user.email}}</p>
-    <p>{{current_user.password_hashed}}</p>
-    <a href="/auth/logout">logout</a>
-=======
+
 <div class="content" id="content-window">
   {% if task_id != None %}
-    <div class="content-header">
-      <h2>{{ task_id.name }}</h2>
-    </div>
+  <div class="content-header">
+    <h2>{{ task_id.name }}</h2>
+  </div>
   <div class="content-container">
     <div class="content-option">
       {% if mode != 'edit' %}
@@ -26,7 +18,7 @@
         <button class="btn btn-primary" type="submit" onclick="saveTask({{ task_id.id }})">
           Save Task
         </button>
-        <button class="btn btn-danger" onclick="window.location.href='/home'">
+        <button class="btn btn-danger" onclick="window.location.href='/tasks/{{ task_id.id }}/edit'">
           Cancel
         </button>
       </div>
@@ -161,11 +153,11 @@
     {% endfor %}
   </div>
   {% else %}
-  <h3 class="font-inter p-2">
-    No active project
-  </h3>
+
+  <script>
+    window.location.href = "/tasks";
+  </script>
   {% endif %}
 </div>
 <script type="text/javascript" src="{{ url_for('static', filename='js/scripts.js') }}"></script>
->>>>>>> Stashed changes
 {% endblock %}

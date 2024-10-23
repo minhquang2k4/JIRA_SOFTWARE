@@ -17,12 +17,22 @@ class RegistrationForm(FlaskForm):
 
   name = StringField('Name')
   username = StringField('Username', validators=[DataRequired()])
-  password1 = PasswordField('Password', validators=[DataRequired(), EqualTo('password2')])
-  password2 = PasswordField('Confirm Password', validators=[DataRequired(), EqualTo('password1')])
+  password = PasswordField('Password', validators=[DataRequired()])
+  password2 = PasswordField('Confirm Password', validators=[DataRequired(), EqualTo('password')])
   email = StringField('Email', validators=[Optional(), Email()])
   submit = SubmitField('Create Account')
 
 class LoginForm(FlaskForm):
+  def validate_username(self, username_to_check):
+    user = User.query.filter_by(username=username_to_check.data).first()
+    if not user:
+      raise ValidationError('Username does not exist!')
+    
+  def validate_password(self, password_to_check):
+    user = User.query.filter_by(username=self.username.data).first()
+    if user and not user.check_password_correction(attempted_password=password_to_check.data):
+      raise ValidationError('Password is incorrect!')
+
   username = StringField('Username', validators=[DataRequired()])
   password = PasswordField('Password', validators=[DataRequired()])
   submit = SubmitField('Login')

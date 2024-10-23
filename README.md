@@ -9,8 +9,8 @@ sau đó nhờ 1 người khác merge. lưu ý ko được tự merge để ng k
 - Chạy lệnh tạo môi trường ảo: python -m venv .venv
 - activate môi trường ảo: .venv\Scripts\activate
 - Chạy lênh pip install -r requirements.txt để tải các thư viện về
-- tạo foder database. trong đó tạo db có tên JIRA_DB.db (tạo bằng sqlite thầy chỉ)
-- update db theo hướng dẫn ở dưới
+- Trong JIRA tạo folder database trong đó tạo db có tên JIRA_DB.db (tạo bằng sqlite thầy chỉ)
+- Update db theo hướng dẫn ở dưới
 - Chạy project: python app.py
 
 ## Quy trình code:
@@ -22,10 +22,12 @@ sau đó nhờ 1 người khác merge. lưu ý ko được tự merge để ng k
 ## Quy trình push:
 
 * Sau khi code xog muốn push code ta thực hiện:
+* activate .venv
 * pip freeze -l > requirements.txt để cập nhật các thư viện đã tải ở môi trường hiện tại
+* commit những thay đổi
 * Chuyển sang nhánh master. thực hiện pull (git checkout master -> git pull origin master)
 * Chuyển sang nhánh dev-quang. thực hiện merge trước ở local (git checkout dev-quang -> git merge master)
-  * check file xem có conflict không. nếu có hãy xử lý hết conflict trước
+  * check file xem có conflict không. nếu có hãy xử lý hết conflict trước => commit xử lý conflict
   * thực hiện push (git push origin dev-quang)
 * Nhờ 1 người khác merge
 

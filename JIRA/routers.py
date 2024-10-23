@@ -3,6 +3,7 @@ from flask_login import current_user
 from functools import wraps
 
 from JIRA import app
+from JIRA.models import *
 
 
 def login_required(f):
@@ -19,14 +20,9 @@ def index():
 
 @app.route('/home')
 @login_required
-<<<<<<< Updated upstream
-def home():
-  return render_template('home.html')
-=======
 def home(project_id=None, task_list=None, task_id=None):
   projects = Project.query.filter(Project.manager_id == current_user.id).all()
   mode=session.get('mode','')
   if session.get('active_project_id'):
     project_id = Project.query.get(session.get('active_project_id'))
   return render_template('home.html', projects=projects,mode=mode, task_list=task_list, task_id=task_id, active_project_id=project_id)
->>>>>>> Stashed changes

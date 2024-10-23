@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% block title %}
+    {{ project.name }}
+{% endblock %}
+
+{% block header %}
+    <a href="{{ url_for('projects.edit_project', id=project.id) }}" class="btn btn-primary">
+        <i class="fa fa-pencil"></i> Edit
+    </a>
+{% endblock %}
+{% block content %}
+    <h1>{{ project.name }}</h1>
+    <label>Manager</label>
+    <p>{{ project.manager_id.name }}</p>
+    <label>Status</label>
+    <p>{{ project.status }}</p>
+    <label>Start Date</label>
+    <p>{{ project.date_start }}</p>
+    <label>End Date</label>
+    <p>{{ project.date_end }}</p>
+    <label>Progress</label>
+    <p>{{ project.progress }}</p>
+    <label>Tasks</label>
+    <ul>
+        {% for task in project.tasks %}
+            <li>{{ task.name }}</li>
+        {% endfor %}
+    </ul>
+
+{% endblock %}

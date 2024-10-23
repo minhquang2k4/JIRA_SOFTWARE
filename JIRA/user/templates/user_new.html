@@ -1,0 +1,79 @@
+{% extends 'base.html' %}
+{% block title %}Create New User{% endblock %}
+
+{% block content %}
+<div class="profile-container">
+  <div class="profile-header">
+    <div class="avatar-container">
+      <div class="avatar">+</div>
+    </div>
+    <div class="user-title">
+      <h1>Create New User</h1>
+      <p>Add a new user to the system</p>
+    </div>
+  </div>
+  <form method="post" class="profile-content">
+    {{ form.csrf_token }}
+    {{ form.hidden_tag() }}
+    <div class="info-section">
+      <h2>User Information</h2>
+      <div class="info-grid">
+        <div class="info-item">
+          <i class="icon-user"></i>
+          <div>
+            {{ form.name.label }}
+            {{ form.name(class="form-input") }}
+          </div>
+        </div>
+        <div class="info-item">
+          <i class="icon-at"></i>
+          <div>
+            {{ form.username.label }}
+            {{ form.username(class="form-input") }}
+          </div>
+        </div>
+        <div class="info-item">
+          <i class="icon-lock"></i>
+          <div>
+            {{ form.password.label }}
+            {{ form.password(class="form-input") }}
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="info-section">
+      <h2>Contact Information</h2>
+      <div class="info-grid">
+        <div class="info-item">
+          <i class="icon-email"></i>
+          <div>
+            {{ form.email.label }}
+            {{ form.email(class="form-input") }}
+          </div>
+        </div>
+
+        <div class="info-item">
+          <i class="icon-phone"></i>
+          <div>
+            {{ form.phone.label }}
+            {{ form.phone(class="form-input") }}
+          </div>
+        </div>
+
+        <div class="info-item">
+          <i class="icon-admin"></i>
+          <div>
+            {{ form.is_admin.label }}
+            {{ form.is_admin(class="form-checkbox") }}
+          </div>
+        </div>
+
+      </div>
+    </div>
+    <div class="profile-actions-new">
+      {{ form.submit(class="btn btn-primary") }}
+      <button type="button" class="user-detail-btn btn btn-secondary" onclick="window.location.href='/users'">Cancel</button>
+    </div>
+  </form>
+</div>
+{% endblock %}

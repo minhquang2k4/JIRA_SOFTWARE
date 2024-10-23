@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% block title %}
+  PROJECT
+{% endblock %}
+
+{% block content %}
+<div class="project-container">
+  <h1 class="project-title">Tạo Nhiệm Vụ Mới</h1>
+
+  <form method="post" class="project-form">
+    {{ form.hidden_tag() }}
+    <div class="project-form-group">
+      {{ form.name.label(class="form-label") }}
+      {{ form.name(class="form-control") }}
+    </div>
+    <div class="project-form-group">
+      {{ form.description.label(class="form-label") }}
+      {{ form.description(class="form-control") }}
+    </div>
+    {{ form.submit(class="submit-btn") }}
+  </form>
+</div>
+{% endblock %}

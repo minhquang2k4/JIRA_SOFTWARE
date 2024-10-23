@@ -1,6 +1,3 @@
-<<<<<<< Updated upstream
-from flask import Blueprint 
-=======
 from flask import Blueprint, session, render_template, flash, request, jsonify
 from datetime import datetime
 from flask_login import current_user
@@ -9,15 +6,19 @@ from JIRA.routers import home, login_required
 from JIRA.task.form import TaskForm
 from JIRA.models import Task, Project
 from JIRA import db
->>>>>>> Stashed changes
 
 task_blueprint = Blueprint('tasks', __name__, template_folder='templates', static_folder='static')
 
+def get_task_list(tasks):
+  task_list = {
+    'todo': [task for task in tasks if task.status == 'todo'],
+    'in-progress': [task for task in tasks if task.status == 'in-progress'],
+    'done': [task for task in tasks if task.status == 'done']
+  }
+  return task_list
+
+
 @task_blueprint.route('/')
-<<<<<<< Updated upstream
-def task():
-  return 'Task'
-=======
 @login_required
 def tasks():
   session.pop('active_task_id', None)
@@ -117,4 +118,3 @@ def delete_task(task_id):
     return tasks()
   else:
     return jsonify({'message': 'Task not found!'})
->>>>>>> Stashed changes

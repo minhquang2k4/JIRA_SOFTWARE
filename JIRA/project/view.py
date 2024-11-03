@@ -52,7 +52,7 @@ def edit_project(id):
     # project.sequence = form.sequence.data
     # project.manager_id = form.manager_id.data
     db.session.commit()
-    return redirect(url_for('projects.project_by_id', id=id))
+    return redirect(url_for('projects.project'))
   projects = Project.query.filter(Project.manager_id == current_user.id).all()
   return render_template('project_edit.html', form=form, project=project, projects=projects)
 

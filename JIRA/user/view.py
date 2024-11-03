@@ -34,43 +34,44 @@ def edit_user(id):
     return redirect(url_for('auth.login'))
   user = db.get_or_404(User, ident=id)
   form = UpdateUserForm(obj=user)
+
   if form.validate_on_submit():
-      try:
-          user.name = form.name.data
-          user.username = form.username.data
-          user.password = form.password.data
-          user.active = form.active.data
-          user.phone = form.phone.data
-          user.email = form.email.data
-          db.session.commit()
-          return redirect(url_for('users.users'))
-      except Exception as e:
-          print(e)
-          db.session.rollback()
+    print(form.data)
+    try:
+      user.name = form.name.data
+      user.username = form.username.data
+      user.email = form.email.data
+
+      db.session.commit()
+      return redirect(url_for('users.user'))
+    except Exception as e:
+      print(e)
+      db.session.rollback()
+  
   if form.errors != {}:
-      for err_msg in form.errors.values():
-          flash(f'There was an error with creating a user: {err_msg}', category='danger')
+    for err_msg in form.errors.values():
+      flash(f'There was an error with creating a user: {err_msg}', category='danger')
   projects = Project.query.filter(Project.manager_id == current_user.id).all()
   return render_template('user_edit.html', form=form, user=user, projects=projects)
 
 @user_blueprint.route('/new', methods=['POST', 'GET'])
 def new_user():
-    if not current_user.is_authenticated:
-        return redirect(url_for('auth.login'))
-    form = UserForm()
-    if form.validate_on_submit():
-        try:
-            user = User(name=form.name.data, username=form.username.data, password=form.password.data,
-                        active=form.active.data, phone=form.phone.data, email=form.email.data,
-                        is_admin=form.is_admin.data)
-            db.session.add(user)
-            db.session.commit()
-            return redirect(url_for('users.users'))
-        except Exception as e:
-            print(e)
-            db.session.rollback()
-    if form.errors != {}:
-        for err_msg in form.errors.values():
-            flash(f'There was an error with creating a user: {err_msg}', category='danger')
-    projects = Project.query.filter(Project.manager_id == current_user.id).all()
-    return render_template('user_new.html', form=form, projects=projects)
+  if not current_user.is_authenticated:
+    return redirect(url_for('auth.login'))
+  form = UserForm()
+  if form.validate_on_submit():
+    try:
+      user = User(name=form.name.data, username=form.username.data, password=form.password.data,
+                 email=form.email.data, is_admin=form.is_admin.data)
+      print(user)
+      db.session.add(user)
+      db.session.commit()
+      return redirect(url_for('users.user'))
+    except Exception as e:
+      print(e)
+      db.session.rollback()
+  if form.errors != {}:
+    for err_msg in form.errors.values():
+      flash(f'There was an error with creating a user: {err_msg}', category='danger')
+  projects = Project.query.filter(Project.manager_id == current_user.id).all()
+  return render_template('user_new.html', form=form, projects=projects)

@@ -460,9 +460,11 @@ color: #fff;
 /* User list */
 .user-list-container {
   max-width: 1200px;
-  margin: 0 auto;
   padding: 20px;
   width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .title {
@@ -477,7 +479,7 @@ color: #fff;
   display: flex;
   justify-content: center;
   gap: 20px;
-  height: 60px;
+  /* height: 60px; */
 }
 
 #searchInput {
@@ -572,7 +574,14 @@ color: #fff;
 
 .btn-create-user {
   border: none;
-  width: 200px;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  margin-bottom: 30px;
+  margin-left: 25px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 /* End user list */
 

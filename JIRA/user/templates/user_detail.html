@@ -24,13 +24,6 @@
               <span>{{ user.email or 'Not provided' }}</span>
             </div>
           </div>
-          <div class="info-item">
-            <i class="icon-phone"></i>
-            <div>
-              <label>Phone</label>
-              <span>{{ user.phone or 'Not found' }}</span>
-            </div>
-          </div>
         </div>
       </div>
       <div class="info-section">
@@ -43,21 +36,12 @@
               <span>{{ 'Administrator' if user.is_admin else 'User' }}</span>
             </div>
           </div>
-          <div class="info-item">
-            <i class="icon-check"></i>
-            <div>
-              <label>Status</label>
-              <span class="status-badge {% if user.is_active %}active{% else %}inactive{% endif %}">
-                {{ 'Active' if user.is_active else 'Inactive' }}
-              </span>
-            </div>
-          </div>
+        
         </div>
       </div>
     </div>
     <div class="profile-actions">
       <button class="user-detail-btn btn btn-primary" onclick="window.location.href='/users/{{ user.id }}/edit'">Edit Profile</button>
-      <button class="user-detail-btn btn btn-secondary">Change Password</button>
     </div>
   </div>
 </div>

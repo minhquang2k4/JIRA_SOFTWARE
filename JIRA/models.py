@@ -4,12 +4,9 @@ from flask_login import UserMixin
 
 from JIRA import db, bcrypt, login_manager
 
-
-
 @login_manager.user_loader
 def load_user(user_id):
   return User.query.get(int(user_id))
-
 
 # khi 1 lớp kế thừa db.Model thì nó sẽ tạo ra 1 bảng trong database tên mặc định sẽ là tên của lớp đó viết thường
 # nếu muốn đặt tên khác thì dùng __tablename__ = 'tên bảng'

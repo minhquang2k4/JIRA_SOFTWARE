@@ -1,7 +1,6 @@
 import os 
 
 from flask import Flask
-from flask_apscheduler import APScheduler 
 from flask_bcrypt import Bcrypt 
 from flask_migrate import Migrate
 from flask_sqlalchemy import SQLAlchemy 
@@ -15,8 +14,7 @@ app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///{}'.format(os.path.join(based
 db = SQLAlchemy(app)
 # config migrate 
 migrate = Migrate(app, db) 
-# nhắc nhở lên lịch cho các task
-scheduler = APScheduler()
+
 # config bcrypt mã hóa password
 bcrypt = Bcrypt(app)
 # config login manager

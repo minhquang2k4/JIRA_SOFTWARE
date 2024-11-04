@@ -353,11 +353,6 @@ color: #fff;
   border-radius: 20px;
 }
 
-.search {
-  /* border: none; */
-  border-radius: 20px;
-  border: 1px solid #418BD4;
-}
 
 .navbar .dropdown-toggle::after {
   display: none;
@@ -380,7 +375,7 @@ color: #fff;
 }
 .content-header h2 {
   font-family: Inter;
-  color: #eee;
+  color: black;
   margin: 0;
 }
 .content-header button {
@@ -452,9 +447,11 @@ color: #fff;
   margin-right: 8px;
 }
 
-
+.content-detail {
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
 /* end content page home */
-
 
 /* User list */
 .user-list-container {
@@ -1169,6 +1166,120 @@ color: #fff;
 }
 /* End Task New */
 
-/* Home Task */
+.activatee {
+  display: none !important;
+}
 
-/* End Home Task */
+.search-bar {
+  width: 45%;
+  min-width: fit-content;
+  margin: 10px 0;
+  background-color: #74828a;
+  border: 1px solid #fff;
+  border-radius: 8px;
+}
+
+.search-bar .search-input {
+  padding: 8px 12px 8px 40px;
+  outline: none;
+  width: 100%;
+  color: #fff;
+  background-color: #74828a;
+}
+
+.search-bar .search-input::placeholder {
+  color: #ddd;
+}
+
+.search-bar .search-icon {
+  position: absolute;
+  left: 8px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 20px;
+  height: 20px;
+}
+
+.search-bar .loading-icon {
+  position: absolute;
+  right: 8px;
+  top: calc(50% - 10px);
+  width: 20px;
+  height: 20px;
+  animation: rotate360 1s linear infinite;
+}
+
+@keyframes rotate360 {
+  to {
+    transform: rotate(-360deg);
+  }
+}
+
+.tippy {
+  position: absolute;
+  z-index: 100;
+  top: calc(100% + 12px);
+  left: 0;
+  width: 100%;
+  background-color: #fff;
+  padding: 12px 0;
+  border-radius: 5px;
+  box-shadow: 0 0 12px rgba(0, 0, 0, 0.5);
+  max-height: 60vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.tippy > span {
+  padding: 0 12px 12px 12px;
+  color: #333;
+  user-select: none;
+}
+
+.tippy > span > strong {
+  color: #555;
+}
+
+.tippy > div {
+  overflow-x: hidden;
+  overflow-y: auto;
+  flex: 1;
+}
+
+.tippy > div::-webkit-scrollbar {
+  height: 8px;
+  width: 8px;
+}
+
+.tippy > div::-webkit-scrollbar-track {
+  background: transparent;
+  border-radius: 10px;
+}
+
+.tippy > div::-webkit-scrollbar-thumb {
+  background: #ccc;
+  border-radius: 10px;
+}
+
+.tippy .tippy-child {
+  padding: 8px 12px;
+  display: flex;
+  flex-direction: column;
+}
+
+.tippy .tippy-child:hover {
+  cursor: pointer;
+  background-color: #ddd;
+}
+
+.tippy .tippy-child > strong {
+  color: #555555;
+}
+
+.tippy .tippy-child > span {
+  font-size: 14px;
+}
+
+.stopPropagation {
+  background-color: red;
+}

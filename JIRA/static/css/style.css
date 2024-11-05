@@ -1171,42 +1171,36 @@ color: #fff;
 }
 
 .search-bar {
+  display: flex;
   width: 45%;
   min-width: fit-content;
-  margin: 10px 0;
-  background-color: #74828a;
+  margin: auto; 
   border: 1px solid #fff;
   border-radius: 8px;
+  position: relative;
 }
 
 .search-bar .search-input {
   padding: 8px 12px 8px 40px;
   outline: none;
   width: 100%;
-  color: #fff;
-  background-color: #74828a;
+  color: #000;
+  background-color: #fff;
 }
 
 .search-bar .search-input::placeholder {
   color: #ddd;
 }
 
-.search-bar .search-icon {
-  position: absolute;
-  left: 8px;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 20px;
-  height: 20px;
-}
 
 .search-bar .loading-icon {
-  position: absolute;
-  right: 8px;
-  top: calc(50% - 10px);
   width: 20px;
   height: 20px;
   animation: rotate360 1s linear infinite;
+  color: #000 !important;
+  position: absolute;
+  right: 20px;
+  top: calc(50% - 10px);
 }
 
 @keyframes rotate360 {

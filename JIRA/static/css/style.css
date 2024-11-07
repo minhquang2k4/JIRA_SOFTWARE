@@ -1210,6 +1210,7 @@ color: #fff;
 }
 
 .tippy {
+  display: none !important;
   position: absolute;
   z-index: 100;
   top: calc(100% + 12px);

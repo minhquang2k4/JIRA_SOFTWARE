@@ -276,3 +276,16 @@ function renderTaskList(tasks) {
       loading.style.display = "none"
   }
 })()
+
+let users_link = document.getElementById('users-link');
+let tasks_link = document.getElementById('task-link');
+
+if (tasks_link) {
+    if (window.location.pathname === '/users/') {
+        tasks_link.classList.remove('active');
+        users_link.classList.add('active');
+    } else {
+        tasks_link.classList.add('active');
+        users_link.classList.remove('active');
+    }
+}

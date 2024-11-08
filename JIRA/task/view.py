@@ -99,7 +99,8 @@ def save_task(task_id):
     return jsonify({'message':'Task not found!'})
   if is_changed(task,data):
     task.name=data.get('name')
-    task.description=data.get('description')
+    task.description=data.get('description') 
+    print(data.get('description'))
     task.priority=data.get('priority')
     task.status=data.get('status')
     task.project_id=data.get('project_id')

@@ -47,8 +47,7 @@
         <div>
           <div class="content-task-line">
             <label for="name">Task Name:</label>
-            <input type="text" id="name" name="name" value="{{ task_id.name }}" {% if mode !='edit' %} disabled {% endif
-              %} />
+            <input type="text" id="name" name="name" value="{{ task_id.name }}" {% if mode !='edit' %} disabled {% endif %} />
           </div>
           <div class="content-task-line activatee">
             <label for="active">Active:</label>
@@ -99,9 +98,9 @@
         </div>
       </div>
 
-      <div class="content-desc" id="description" contenteditable="{{ mode == 'edit' }}">
+      <div class="content-desc" contenteditable="{{ mode == 'edit' }}">
         <strong>Description:</strong>
-        <span>{{ task_id.description or 'Description' }}</span>
+        <input type="text" id="description" name="description" value="{{ task_id.description }}" {% if mode !='edit' %} disabled {% endif %} />
       </div>
     </div>
   </div>

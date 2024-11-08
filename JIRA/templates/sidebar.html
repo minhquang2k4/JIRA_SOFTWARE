@@ -6,14 +6,14 @@
   <div class="hr"></div>
   <ul class="nav nav-pills flex-column">
     <li class="nav-item">
-      <a href="/tasks" class="nav-link d-flex align-items-center active" id="task-link" aria-current="page">
+      <a href="/tasks" class="nav-link d-flex align-items-center" id="task-link" aria-current="page">
         <i class="bi bi-check-square me-2"></i>
         Tasks
       </a>
     </li>
     {% if current_user.is_admin %}
     <li>
-      <a href="{{ url_for('users.user') }}" class="nav-link d-flex align-items-center active" aria-current="page" id="users-link">
+      <a href="{{ url_for('users.user') }}" class="nav-link d-flex align-items-center" aria-current="page" id="users-link">
         <i class="bi bi-star me-2"></i>
         Users
       </a>
